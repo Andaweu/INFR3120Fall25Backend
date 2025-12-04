@@ -1,0 +1,66 @@
+<%-include ../partials/header.ejs %>
+<%-include ../partials/main_nav.ejs %>
+<!--Content for editing the car-->
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1><%= title %></h1>
+
+            <form class="form" method="post">
+                <div class="form-group">
+                    <label for="makeTextField">Car Make</label>
+                    <input type="text" class="form-control"
+                    id="makeTextField"
+                    placeholder="Enter the car's make"
+                    name="make"
+                    value="<%=car.make%>"
+                    required>
+                </div>
+                <div class="form-group">
+                    <label for="modelTextField">Car Model</label>
+                    <input type="text" class="form-control"
+                    id="modelTextField"
+                    placeholder="Enter the car's model"
+                    name="model" 
+                    value="<%=car.model%>"
+                    required>
+                </div>
+                <div class="form-group">
+                    <label for="yearTextField">Year of Manufacture</label>
+                    <input type="text" class="form-control"
+                    id="yearTextField"
+                    placeholder="Enter the car's year of manufacture"
+                    name="year" 
+                    value="<%=car.year%>"
+                    required>
+                </div>
+                <div class="form-group">
+                    <label for="mileageTextField">Mileage (km)</label>
+                    <input type="text" class="form-control"
+                    id="mileageTextField"
+                    placeholder="Enter the car's mileage (KM)"
+                    name="mileage" 
+                    value="<%=car.mileage%>"
+                    required></input>
+                </div>
+                <div class="form-group">
+                    <label for="priceTextField">Car Price</label>
+                    <input type="text" class="form-control"
+                    id="priceTextField"
+                    placeholder="Enter the car's price"
+                    name="price" 
+                    value="<%=car.price%>"
+                    required>
+                </div>
+                <br>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> Submit
+                </button>
+                <a href="/cars" class="btn btn-warning">
+                    <i class="fas fa-undo"></i> Cancel
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+<%-include ../partials/footer.ejs %>

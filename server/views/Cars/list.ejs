@@ -1,0 +1,59 @@
+<%-include ../partials/header.ejs %>
+<%-include ../partials/main_nav.ejs %>
+<!--Main content for displaying my database-->
+<main class="container">
+    <div class="wrapper">
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+            <h1 class="text-center">Available Listings</h1>
+            <br>
+            <table class="table table-bordered table-striped table-hover">
+                <!--Header Row-->
+                <tr class="d-flex">
+                    <th class="text-center col-2">Make</th>
+                    <th class="text-center col-2">Model</th>
+                    <th class="text-center col-1">Year</th>
+                    <th class="text-center col-2">Mileage</th>
+                    <th class="text-center col-2">Price</th>
+                    <th class="text-center col-2">Edit</th>
+                    <th class="text-center col-2">Delete</th>
+                </tr>
+                <!--for/while loop-->
+                <% for(let count=0; count<CarList.length;count++) { %>
+                    <tr class="d-flex">
+                        <td class="text-center col-2"><%= CarList[count].make %></td>
+                        <td class="text-center col-2"><%= CarList[count].model %></td>
+                        <td class="text-center col-1"><%= CarList[count].year %></td>
+                        <td class="text-center col-2"><%= CarList[count].mileage %> km</td>
+                        <td class="text-center col-2">$<%= CarList[count].price %></td>
+                        <% if (locals.user) { %> <!--Routes the buttons to their correct destination if logged in-->
+                        <td class="text-center col-2"><a href="/cars/edit/<%=CarList[count]._id%>"
+                            class="btn btn-primary btn-sm"><i class ="fas fa-pencil-alt"></i>Edit</a></td>
+
+
+                        <td class="text-center col-2"><a href="/cars/delete/<%=CarList[count]._id%>"
+                            class="btn btn-danger btn-sm" ><i class ="fas fa-trash-alt"></i>Delete</a></td>
+                        <% } else { %> <!--Routes buttons to the login screen if the user is not logged in-->
+                        <td class="text-center col-2"><a href="/login"
+                            class="btn btn-primary btn-sm"><i class ="fas fa-pencil-alt"></i>Edit</a></td>
+
+
+                        <td class="text-center col-2"><a href="/login"
+                            class="btn btn-danger btn-sm" ><i class ="fas fa-trash-alt"></i>Delete</a></td>
+                        <% } %>
+                        </tr>
+                    <% } %>
+                    
+            </table>
+
+			<!--added 'add car' button-->
+            <a href="/cars/add" class="btn btn-primary mt-3">
+				<i class="fas fa-plus"></i> Add Car
+				</a>
+
+
+        </div>
+    </div>
+    </div>
+</main>
+<%-include ../partials/footer.ejs %>
