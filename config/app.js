@@ -77,9 +77,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
-app.use('/', indexApiRouter);
-app.use('/users', usersApiRouter);
-app.use('/cars',carsApiRouter);
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/cars',carsRouter);
 
 app.use('/api/cars', require('../routes/api/cars.api'));
 app.use('/api/users', require('../routes/api/users.api'));
