@@ -20,7 +20,6 @@ let passport = require('passport');
 let passportLocal = require('passport-local');
 let locatStrategy = passportLocal.Strategy;
 let flash = require('connect-flash')
-let cors = require('cors')
 
 //User stuffz
 let userModel = require('../models/user')
